@@ -45,7 +45,7 @@ for i in range(n): #  quantum circuit corresponding to the input value is  made
   q +=2
 qc.barrier()
 i=0
-while i < (2*(n-1))-1:
+while i < (2*n)-3:
     qc=subc(qc,i) # function call to subtract two consicutive bits
     i +=2
 qc.cx(i,i+1) #subtraction of the final two bita
