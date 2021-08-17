@@ -63,5 +63,5 @@ s=list(counts.keys())[0]
 s=int(s,2) # the binary number is converted to a decimal
 if z == 1: # the decimal is made negative if a swapping had occured that is if the first number was bigger thanthe second number
     s = s*(-1)
-print(s) # print result
+print("Answer is :",s) # print result
                                                                                                                                     5,1           Top
