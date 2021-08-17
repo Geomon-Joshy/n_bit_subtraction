@@ -22,7 +22,11 @@ def subc(qc,i): #defining a function which subtract a bit from its next bit a su
     qc.ccx(i,i+1,i+2)
     c=i+2
     while c <= (2*n)-1:
-        qc.ccx(c-2,c,c+2)
+        qc.x(c)
+        qc.barrier
+        qc.ccx(c-1,c,c+2)
+        qc.barrier()
+        qc.x(c)
         c +=2
     qc.barrier()
     return qc
