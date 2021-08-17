@@ -19,9 +19,11 @@ def conv(a,n): #defining a function which converts a decimal number to a binary 
     return r
 def subc(qc,i): #defining a function which subtract a bit from its next bit a subtracts borrow from upper bits
     qc.cx(i,i+1)
-    qc.cx(i+2,i+4)
     qc.ccx(i,i+1,i+2)
-    qc.cx(i+2,i+4)
+    c=i+2
+    while c <= (2*n)-1:
+        qc.ccx(c-2,c,c+2)
+        c +=2
     qc.barrier()
     return qc
 n= int(input("Enter number of bits used:")) # the number of bits used (for efficency the number of bits of highest integer number is used)
@@ -38,22 +40,20 @@ br=conv(b,n) # funtion call to convert first number
 qc = QuantumCircuit((2*n)+1,n) # A quantumcircuit is initialised
 q=0
 for i in range(n): #  quantum circuit corresponding to the input value is  made
-  if ar[i]==1: 
+  if ar[i]==1:
     qc.x(q)
   if br[i]==1:
     qc.x(q+1)
   q +=2
 qc.barrier()
 i=0
-while i < (2*n)-3:
+while i < (2*n)-1:
     qc=subc(qc,i) # function call to subtract two consicutive bits
     i +=2
-qc.cx(i,i+1) #subtraction of the final two bita
-qc.ccx(i,i+1,i+2)
 qc.barrier()
 i=1
 q=0
-while i <= 2*(n-1):
+while i <= 2*n:
     qc.measure(i,q)  # the results are meassured
     q +=1
     i +=2
@@ -64,4 +64,5 @@ s=int(s,2) # the binary number is converted to a decimal
 if z == 1: # the decimal is made negative if a swapping had occured that is if the first number was bigger thanthe second number
     s = s*(-1)
 print("Answer is :",s) # print result
-                                                                                                                                    5,1           Top
+
+                                                                                                                                    5,1           T
