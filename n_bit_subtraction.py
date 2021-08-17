@@ -51,10 +51,10 @@ while i < (2*(n-1))-1:
 qc.cx(i,i+1) #subtraction of the final two bita
 qc.ccx(i,i+1,i+2)
 qc.barrier()
-i=0
+i=1
 q=0
 while i <= 2*(n-1):
-    qc.measure(i+1,q)  # the results are meassured
+    qc.measure(i,q)  # the results are meassured
     q +=1
     i +=2
 qobj = assemble(qc) #simulating the circuit 
