@@ -48,7 +48,7 @@ i=0
 while i < (2*(n-1))-1:
     qc=subc(qc,i) # function call to subtract two consicutive bits
     i +=2
-qc.cx(i,i+1)
+qc.cx(i,i+1) #adds the final two bita
 qc.ccx(i,i+1,i+2)
 qc.barrier()
 i=0
@@ -57,7 +57,7 @@ while i <= 2*(n-1):
     qc.measure(i+1,q)  # the results are meassured
     q +=1
     i +=2
-qobj = assemble(qc) #simulating the circuit #
+qobj = assemble(qc) #simulating the circuit 
 counts = sim.run(qobj).result().get_counts()
 s=list(counts.keys())[0]
 s=int(s,2) # the binary number is converted to a decimal
