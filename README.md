@@ -11,4 +11,4 @@ Two do subtraction of bits with carry the following code is used.
     qc.ccx(i,i+1,i+2)
     qc.cx(i+2,i+4)
 The number of bit of the biggest number has to be given as input
-the total number of bits used **2*n+1
+the total number of bits used **2*n+1**
