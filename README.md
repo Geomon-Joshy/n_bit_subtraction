@@ -5,7 +5,7 @@ libraries needed :-
   1. python3.
   2. qiskit .
   3. qiskit.visualization.\
-Two do subtraction of bits with carry the following code is used.
+Two do subtraction of bits with carry the following code is used:-
 - qc.cx(i,i+1)
 - qc.cx(i+2,i+4)
 - qc.ccx(i,i+1,i+2)
